@@ -40,8 +40,12 @@ class _SebhaTabState extends State<SebhaTab> {
                     .of(context)
                     .size
                     .height * .32),
-            child: Image.asset('assets/images/head_of_seb7a.png'),
-          ),
+              child: provider.isDarkMode() ?
+              Image.asset('assets/images/dark_head_of_seb7a.png',)
+                  : Image.asset('assets/images/head_of_seb7a.png',
+
+
+              )),
             GestureDetector(
               onTap: () {
                 angle += 3;
@@ -66,7 +70,9 @@ class _SebhaTabState extends State<SebhaTab> {
                         .height * .1
                 ),
                 child: Transform.rotate(angle: angle,
-                    child: Image.asset('assets/images/body_of_seb7a.png')),
+                    child: provider.isDarkMode() ?
+                    Image.asset('assets/images/dark_body_of_seb7a.png',) :
+                    Image.asset('assets/images/body_of_seb7a.png',)),
               ),
             ),
           ],
@@ -82,7 +88,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),),
         Container(
           padding: EdgeInsets.all(20),
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: provider.isDarkMode() ?
               AppColors.primaryDarktColor :
@@ -91,21 +97,26 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
           child: Text('$tesbehCount',
             style: TextStyle(fontWeight: FontWeight.w400,
-                fontSize: 25),),),
+              fontSize: 25,
+              color: provider.isDarkMode() ?
+              AppColors.whiteColor :
+              AppColors.blackColor,),),),
         Container(
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(10),
 
           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
           decoration: BoxDecoration(
               color: provider.isDarkMode() ?
-              AppColors.primaryDarktColor :
+              AppColors.yellowColor :
               AppColors.primaryLightColor,
               borderRadius: BorderRadius.circular(20)
           ),
           child: Text(tasbeh[index],
             style: TextStyle(fontWeight: FontWeight.w400,
                 fontSize: 25,
-                color: Colors.white),),)
+              color: provider.isDarkMode() ?
+              AppColors.blackColor :
+              AppColors.whiteColor,),),)
 
 
       ],

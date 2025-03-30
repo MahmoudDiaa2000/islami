@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/hadeth/hadeth_tab.dart';
 import 'package:islami/home/quran/quran_tab.dart';
 import 'package:islami/home/radio/radio_tab.dart';
 import 'package:islami/home/sebha/sebha_tab.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/settings/settings.dart';
 import 'package:islami/providers/app_config_provider.dart';
 import 'package:provider/provider.dart';
+
+import 'app_colors.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -45,7 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
               style: Theme
                   .of(context)
                   .textTheme
-                  .bodyLarge,
+                  .bodyLarge!
+                  .copyWith(color: provider.isDarkMode() ?
+              AppColors.whiteColor :
+              AppColors.blackColor,),
 
             ),
           ),

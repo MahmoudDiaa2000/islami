@@ -4,7 +4,7 @@ class AppConfigProvider extends ChangeNotifier {
   // data
 
   String appLanguage = 'en';
-  ThemeMode appTheme = ThemeMode.dark;
+  ThemeMode appTheme = ThemeMode.light;
 
   void changeLanguage(String newLanguage) {
     if (appLanguage == newLanguage) {
